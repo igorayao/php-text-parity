@@ -1,5 +1,5 @@
 # php-text-parity
-
+[![test](https://github.com/igorayao/php-text-parity/actions/workflows/test.yml/badge.svg)](https://github.com/igorayao/php-text-parity/actions/workflows/test.yml)
 PHP-compatible text processing for JavaScript, verified byte for byte against PHP 8.3.
 
 If you are porting a PHP application to JavaScript, or running a JavaScript front end against a PHP back end, text handling is where the two quietly disagree. `trim()` uses a different character set. `strlen()` counts bytes, not characters. `grapheme_strlen()` counts something else again. And `strnatcasecmp()` has an ordering that no JavaScript comparator reproduces by default.
