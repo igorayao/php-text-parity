@@ -1,0 +1,22 @@
+{
+  "name": "php-text-parity",
+  "version": "1.0.0",
+  "description": "PHP-compatible text processing for JavaScript. Grapheme counts, UTF-8 byte length, PHP trim() and strnatcasecmp(), plus 48 text transforms — verified byte for byte against PHP 8.3.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": ["src", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "php", "parity", "compatibility", "text", "string",
+    "strnatcasecmp", "grapheme", "utf-8", "slugify", "word-count",
+    "natural-sort", "migration"
+  ],
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "sideEffects": false
+}
