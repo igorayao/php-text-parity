@@ -1,8 +1,8 @@
 {
   "name": "php-text-parity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PHP-compatible text processing for JavaScript. Grapheme counts, UTF-8 byte length, PHP trim() and strnatcasecmp(), plus 48 text transforms — verified byte for byte against PHP 8.3.",
-  "homepage": "https://github.com/igorayao/php-text-parity#readme",
+  "homepage": "https://trexmi.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/igorayao/php-text-parity.git"
