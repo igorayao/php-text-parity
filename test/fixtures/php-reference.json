@@ -1,0 +1,1150 @@
+{
+ "generated_against": "PHP 8.3.6 with mbstring, intl and dom",
+ "source": "Reference outputs captured by running the original PHP implementation on each input.",
+ "cases": [
+  {
+   "id": "alternating-case",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "HeLlO   wOrLd\tFoO\nпРиВіТ сВіТ\n\nsEcOnD  pArAgRaPh. AnOtHeR oNe! ThIrD?\neMaIl: A.b+C@eXaMpLe.Co.Uk Та TeSt@MaIl.OrG\n#tAg1 #ТеГ2 @uSeR.nAmE +380 (67) 123-45-67\nhTtPs://ExAmPlE.cOm/PaTh?A=1, hTtP://x.Io/Y\n-12.5 aNd 42 AnD +7\n  sPaCeD  lInE  \ndUpLiCaTe\nDuPlIcAtE\n\néMoJi 🎉👍🏽 AnD ﬁ LiGaTuRe\nCaFé NaÏvE",
+   "message": "Converted to alternating case."
+  },
+  {
+   "id": "alternating-case",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "character-count",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": {
+    "characters": 293,
+    "charactersWithoutSpaces": 246,
+    "bytes": 323
+   },
+   "message": "Character count completed."
+  },
+  {
+   "id": "character-count",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "collapse-spaces",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello World foo\nПривіт Світ\n\nsecond paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n spaced line \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+   "message": "Repeated spaces collapsed."
+  },
+  {
+   "id": "collapse-spaces",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "comma-list-to-lines",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1\nhttp://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+   "message": "Comma-separated values moved to separate lines."
+  },
+  {
+   "id": "comma-list-to-lines",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "extract-emails",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": [
+    "a.b+c@example.co.uk",
+    "test@mail.org"
+   ],
+   "message": "2 unique email address(es) extracted."
+  },
+  {
+   "id": "extract-emails",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "strip-emojis",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji  and ﬁ ligature\nCafé naïve",
+   "message": "Emoji characters removed."
+  },
+  {
+   "id": "strip-emojis",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "extract-hashtags",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": [
+    "#tag1",
+    "#тег2"
+   ],
+   "message": "2 unique hashtag(s) extracted."
+  },
+  {
+   "id": "extract-hashtags",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "line-count",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": {
+    "totalLines": 14,
+    "nonEmptyLines": 12,
+    "emptyLines": 2
+   },
+   "message": "14 line(s)."
+  },
+  {
+   "id": "line-count",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "lines-to-comma-list",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tfoo, Привіт Світ, second  paragraph. Another one! Third?, email: a.b+c@example.co.uk та test@mail.org, #tag1 #тег2 @user.name +380 (67) 123-45-67, https://example.com/path?a=1, http://x.io/y, -12.5 and 42 and +7, spaced  line, duplicate, duplicate, émoji 🎉👍🏽 and ﬁ ligature, Café naïve",
+   "message": "Lines converted to a comma-separated list."
+  },
+  {
+   "id": "lines-to-comma-list",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "lowercase",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "hello   world\tfoo\nпривіт світ\n\nsecond  paragraph. another one! third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\ncafé naïve",
+   "message": "Converted to lowercase."
+  },
+  {
+   "id": "lowercase",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "extract-mentions",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": [
+    "@example.co.uk",
+    "@mail.org",
+    "@user.name"
+   ],
+   "message": "3 unique mention(s) extracted."
+  },
+  {
+   "id": "extract-mentions",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "extract-numbers",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": [
+    "1",
+    "2",
+    "+380",
+    "67",
+    "123",
+    "-45",
+    "-67",
+    "1",
+    "-12.5",
+    "42",
+    "+7"
+   ],
+   "message": "11 number(s) extracted."
+  },
+  {
+   "id": "extract-numbers",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "paragraph-count",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": {
+    "paragraphs": 3
+   },
+   "message": "3 paragraph(s)."
+  },
+  {
+   "id": "paragraph-count",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "extract-phone-numbers",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": [
+    "+380 (67) 123-45-67"
+   ],
+   "message": "1 phone number(s) extracted."
+  },
+  {
+   "id": "extract-phone-numbers",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "quote-lines",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "\"Hello   World\tfoo\"\n\"Привіт Світ\"\n\"\"\n\"second  paragraph. Another one! Third?\"\n\"email: a.b+c@example.co.uk та test@mail.org\"\n\"#tag1 #тег2 @user.name +380 (67) 123-45-67\"\n\"https://example.com/path?a=1, http://x.io/y\"\n\"-12.5 and 42 and +7\"\n\"  spaced  line  \"\n\"duplicate\"\n\"duplicate\"\n\"\"\n\"émoji 🎉👍🏽 and ﬁ ligature\"\n\"Café naïve\"",
+   "message": "Lines wrapped in quotes."
+  },
+  {
+   "id": "quote-lines",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "reading-time",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": {
+    "words": 54,
+    "wordsPerMinute": 200,
+    "readingTimeMinutes": 1
+   },
+   "message": "54 word(s) at 200 words per minute."
+  },
+  {
+   "id": "reading-time",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "remove-all-spaces",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "HelloWorldfooПривітСвітsecondparagraph.Anotherone!Third?email:a.b+c@example.co.ukтаtest@mail.org#tag1#тег2@user.name+380(67)123-45-67https://example.com/path?a=1,http://x.io/y-12.5and42and+7spacedlineduplicateduplicateémoji🎉👍🏽andﬁligatureCafénaïve",
+   "message": "All whitespace removed."
+  },
+  {
+   "id": "remove-all-spaces",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "remove-duplicate-lines",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+   "message": "2 duplicate line(s) removed."
+  },
+  {
+   "id": "remove-duplicate-lines",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "remove-duplicate-words",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello World\tfoo\nПривіт Світ\n\nsecond paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 +7\n spaced line \nduplicate\n\n\némoji 🎉👍🏽 ﬁ ligature\nCafé naïve",
+   "message": "34 unique word(s) kept."
+  },
+  {
+   "id": "remove-duplicate-words",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "remove-empty-lines",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tfoo\nПривіт Світ\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+   "message": "2 empty line(s) removed."
+  },
+  {
+   "id": "remove-empty-lines",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "remove-line-numbers",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+   "message": "Leading line numbers removed."
+  },
+  {
+   "id": "remove-line-numbers",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "remove-numbers",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag #тег @user.name + () --\nhttps://example.com/path?a=, http://x.io/y\n-. and  and +\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+   "message": "Numbers removed."
+  },
+  {
+   "id": "remove-numbers",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "remove-punctuation",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph Another one Third\nemail abcexamplecouk та testmailorg\ntag1 тег2 username 380 67 1234567\nhttpsexamplecompatha1 httpxioy\n125 and 42 and 7\n  spaced  line  \nduplicate\nduplicate\n\némoji  and ﬁ ligature\nCafé naïve",
+   "message": "Punctuation and symbols removed."
+  },
+  {
+   "id": "remove-punctuation",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "remove-tabs",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   Worldfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+   "message": "Tab characters removed."
+  },
+  {
+   "id": "remove-tabs",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "reverse-lines",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Café naïve\némoji 🎉👍🏽 and ﬁ ligature\n\nduplicate\nduplicate\n  spaced  line  \n-12.5 and 42 and +7\nhttps://example.com/path?a=1, http://x.io/y\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nemail: a.b+c@example.co.uk та test@mail.org\nsecond  paragraph. Another one! Third?\n\nПривіт Світ\nHello   World\tfoo",
+   "message": "Line order reversed."
+  },
+  {
+   "id": "reverse-lines",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "reverse-text",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "evïan éfaC\nerutagil ﬁ dna 👍🏽🎉 ijomé\n\netacilpud\netacilpud\n  enil  decaps  \n7+ dna 24 dna 5.21-\ny/oi.x//:ptth ,1=a?htap/moc.elpmaxe//:sptth\n76-54-321 )76( 083+ eman.resu@ 2гет# 1gat#\ngro.liam@tset ат ku.oc.elpmaxe@c+b.a :liame\n?drihT !eno rehtonA .hpargarap  dnoces\n\nтівС тівирП\noof\tdlroW   olleH",
+   "message": "Text reversed."
+  },
+  {
+   "id": "reverse-text",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "reverse-words",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "naïve Café ligature ﬁ and émoji duplicate duplicate line spaced 7 and 42 and 5 12 y io x http 1 a path com example https 123-45-67 67 380 name user тег2 tag1 org mail test та uk co example c b a email Third one Another paragraph second Світ Привіт foo World Hello",
+   "message": "Word order reversed."
+  },
+  {
+   "id": "reverse-words",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "sentence-case",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   world\tfoo\nпривіт світ\n\nsecond  paragraph. Another one! Third?\nEmail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\ncafé naïve",
+   "message": "Converted to sentence case."
+  },
+  {
+   "id": "sentence-case",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "sentence-count",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": {
+    "sentences": 13
+   },
+   "message": "13 sentence(s)."
+  },
+  {
+   "id": "sentence-count",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "slug-generator",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "hello-world-foo-pryvit-svit-second-paragraph-another-one-third-email-a-b-c-example-co-uk-ta-test-mail-org-tag1-teh2-user-name-380-67-123-45-67-https-example-com-path-a-1-http-x-io-y-12-5-and-42-and-7-spaced-line-duplicate-duplicate-emoji-and-fi-ligature-cafe-naive",
+   "message": "Slug generated."
+  },
+  {
+   "id": "slug-generator",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "tabs-to-spaces",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World    foo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+   "message": "Tabs converted to four spaces."
+  },
+  {
+   "id": "tabs-to-spaces",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "text-statistics",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": {
+    "words": 54,
+    "characters": 293,
+    "charactersWithoutSpaces": 246,
+    "bytes": 323,
+    "lines": 14,
+    "sentences": 13,
+    "paragraphs": 3,
+    "readingTimeMinutes": 1
+   },
+   "message": "Text statistics calculated."
+  },
+  {
+   "id": "text-statistics",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "title-case",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tFoo\nПривіт Світ\n\nSecond  Paragraph. Another One! Third?\nEmail: A.B+C@Example.Co.Uk Та Test@Mail.Org\n#Tag1 #Тег2 @User.Name +380 (67) 123-45-67\nHttps://Example.Com/Path?A=1, Http://X.Io/Y\n-12.5 And 42 And +7\n  Spaced  Line  \nDuplicate\nDuplicate\n\nÉmoji 🎉👍🏽 And FI Ligature\nCafé Naïve",
+   "message": "Converted to title case."
+  },
+  {
+   "id": "title-case",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "trim-whitespace",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\nspaced  line\nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+   "message": "Extra whitespace removed."
+  },
+  {
+   "id": "trim-whitespace",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "unique-word-count",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": [
+    "hello",
+    "world",
+    "foo",
+    "привіт",
+    "світ",
+    "second",
+    "paragraph",
+    "another",
+    "one",
+    "third",
+    "email",
+    "a",
+    "b",
+    "c",
+    "example",
+    "co",
+    "uk",
+    "та",
+    "test",
+    "mail",
+    "org",
+    "tag1",
+    "тег2",
+    "user",
+    "name",
+    "380",
+    "67",
+    "123-45-67",
+    "https",
+    "com",
+    "path",
+    "1",
+    "http",
+    "x",
+    "io",
+    "y",
+    "12",
+    "5",
+    "and",
+    "42",
+    "7",
+    "spaced",
+    "line",
+    "duplicate",
+    "émoji",
+    "ﬁ",
+    "ligature",
+    "café",
+    "naïve"
+   ],
+   "message": "49 unique word(s)."
+  },
+  {
+   "id": "unique-word-count",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "uppercase",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "HELLO   WORLD\tFOO\nПРИВІТ СВІТ\n\nSECOND  PARAGRAPH. ANOTHER ONE! THIRD?\nEMAIL: A.B+C@EXAMPLE.CO.UK ТА TEST@MAIL.ORG\n#TAG1 #ТЕГ2 @USER.NAME +380 (67) 123-45-67\nHTTPS://EXAMPLE.COM/PATH?A=1, HTTP://X.IO/Y\n-12.5 AND 42 AND +7\n  SPACED  LINE  \nDUPLICATE\nDUPLICATE\n\nÉMOJI 🎉👍🏽 AND FI LIGATURE\nCAFÉ NAÏVE",
+   "message": "Converted to uppercase."
+  },
+  {
+   "id": "uppercase",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "extract-urls",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": [
+    "https://example.com/path?a=1",
+    "http://x.io/y"
+   ],
+   "message": "2 unique URL(s) extracted."
+  },
+  {
+   "id": "extract-urls",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "word-count",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": {
+    "words": 54,
+    "characters": 293,
+    "charactersWithoutSpaces": 246,
+    "bytes": 323,
+    "lines": 14,
+    "sentences": 13,
+    "paragraphs": 3,
+    "readingTimeMinutes": 1
+   },
+   "message": "54 word(s)."
+  },
+  {
+   "id": "word-count",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "word-frequency",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": [
+    {
+     "value": "and",
+     "count": 3
+    },
+    {
+     "value": "a",
+     "count": 2
+    },
+    {
+     "value": "duplicate",
+     "count": 2
+    },
+    {
+     "value": "example",
+     "count": 2
+    },
+    {
+     "value": "-12",
+     "count": 1
+    },
+    {
+     "value": "1",
+     "count": 1
+    },
+    {
+     "value": "5",
+     "count": 1
+    },
+    {
+     "value": "7",
+     "count": 1
+    },
+    {
+     "value": "42",
+     "count": 1
+    },
+    {
+     "value": "67",
+     "count": 1
+    },
+    {
+     "value": "123-45-67",
+     "count": 1
+    },
+    {
+     "value": "380",
+     "count": 1
+    },
+    {
+     "value": "another",
+     "count": 1
+    },
+    {
+     "value": "b",
+     "count": 1
+    },
+    {
+     "value": "c",
+     "count": 1
+    },
+    {
+     "value": "café",
+     "count": 1
+    },
+    {
+     "value": "co",
+     "count": 1
+    },
+    {
+     "value": "com",
+     "count": 1
+    },
+    {
+     "value": "email",
+     "count": 1
+    },
+    {
+     "value": "foo",
+     "count": 1
+    },
+    {
+     "value": "hello",
+     "count": 1
+    },
+    {
+     "value": "http",
+     "count": 1
+    },
+    {
+     "value": "https",
+     "count": 1
+    },
+    {
+     "value": "io",
+     "count": 1
+    },
+    {
+     "value": "ligature",
+     "count": 1
+    },
+    {
+     "value": "line",
+     "count": 1
+    },
+    {
+     "value": "mail",
+     "count": 1
+    },
+    {
+     "value": "name",
+     "count": 1
+    },
+    {
+     "value": "naïve",
+     "count": 1
+    },
+    {
+     "value": "one",
+     "count": 1
+    },
+    {
+     "value": "org",
+     "count": 1
+    },
+    {
+     "value": "paragraph",
+     "count": 1
+    },
+    {
+     "value": "path",
+     "count": 1
+    },
+    {
+     "value": "second",
+     "count": 1
+    },
+    {
+     "value": "spaced",
+     "count": 1
+    },
+    {
+     "value": "tag1",
+     "count": 1
+    },
+    {
+     "value": "test",
+     "count": 1
+    },
+    {
+     "value": "third",
+     "count": 1
+    },
+    {
+     "value": "uk",
+     "count": 1
+    },
+    {
+     "value": "user",
+     "count": 1
+    },
+    {
+     "value": "world",
+     "count": 1
+    },
+    {
+     "value": "x",
+     "count": 1
+    },
+    {
+     "value": "y",
+     "count": 1
+    },
+    {
+     "value": "émoji",
+     "count": 1
+    },
+    {
+     "value": "привіт",
+     "count": 1
+    },
+    {
+     "value": "світ",
+     "count": 1
+    },
+    {
+     "value": "та",
+     "count": 1
+    },
+    {
+     "value": "тег2",
+     "count": 1
+    },
+    {
+     "value": "ﬁ",
+     "count": 1
+    }
+   ],
+   "message": "49 unique word(s) analyzed."
+  },
+  {
+   "id": "word-frequency",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": [],
+   "message": "Add text to begin."
+  },
+  {
+   "id": "words-to-lines",
+   "name": "main",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve"
+   },
+   "output": "Hello\nWorld\nfoo\nПривіт\nСвіт\nsecond\nparagraph\nAnother\none\nThird\nemail\na\nb\nc\nexample\nco\nuk\nта\ntest\nmail\norg\ntag1\nтег2\nuser\nname\n380\n67\n123-45-67\nhttps\nexample\ncom\npath\na\n1\nhttp\nx\nio\ny\n12\n5\nand\n42\nand\n7\nspaced\nline\nduplicate\nduplicate\némoji\nand\nﬁ\nligature\nCafé\nnaïve",
+   "message": "Words moved to separate lines."
+  },
+  {
+   "id": "words-to-lines",
+   "name": "empty",
+   "input": {
+    "source": ""
+   },
+   "output": "",
+   "message": "Add text to begin."
+  },
+  {
+   "id": "sort-lines",
+   "name": "asc",
+   "input": {
+    "source": "line3\nline1\nitem10\nitem9\nLine2\nБета\nАльфа"
+   },
+   "output": "item9\nitem10\nline1\nLine2\nline3\nАльфа\nБета",
+   "message": "7 line(s) sorted."
+  },
+  {
+   "id": "sort-lines",
+   "name": "asc-flipped",
+   "input": {
+    "source": "line3\nline1\nitem10\nitem9\nLine2\nБета\nАльфа",
+    "direction": "desc"
+   },
+   "output": "Бета\nАльфа\nline3\nLine2\nline1\nitem10\nitem9",
+   "message": "7 line(s) sorted."
+  },
+  {
+   "id": "sort-lines-desc",
+   "name": "desc",
+   "input": {
+    "source": "line3\nline1\nitem10\nitem9\nLine2\nБета\nАльфа"
+   },
+   "output": "Бета\nАльфа\nline3\nLine2\nline1\nitem10\nitem9",
+   "message": "7 line(s) sorted descending."
+  },
+  {
+   "id": "sort-lines-desc",
+   "name": "desc-flipped",
+   "input": {
+    "source": "line3\nline1\nitem10\nitem9\nLine2\nБета\nАльфа",
+    "direction": "asc"
+   },
+   "output": "item9\nitem10\nline1\nLine2\nline3\nАльфа\nБета",
+   "message": "7 line(s) sorted descending."
+  },
+  {
+   "id": "find-replace",
+   "name": "basic",
+   "input": {
+    "source": "one two one\nthree one",
+    "find": "one",
+    "replace": "1"
+   },
+   "output": "1 two 1\nthree 1",
+   "message": "3 replacement(s) made."
+  },
+  {
+   "id": "prefix-lines",
+   "name": "basic",
+   "input": {
+    "source": "a\nb\nc",
+    "affix": "• "
+   },
+   "output": "• a\n• b\n• c",
+   "message": "Prefix added to every line."
+  },
+  {
+   "id": "suffix-lines",
+   "name": "basic",
+   "input": {
+    "source": "a\nb\nc",
+    "affix": ".txt"
+   },
+   "output": "a.txt\nb.txt\nc.txt",
+   "message": "Suffix added to every line."
+  },
+  {
+   "id": "remove-word",
+   "name": "basic",
+   "input": {
+    "source": "the cat and the dog and THE bird",
+    "word": "the"
+   },
+   "output": " cat and dog and bird",
+   "message": "3 occurrence(s) removed."
+  },
+  {
+   "id": "repeat-text",
+   "name": "basic",
+   "input": {
+    "source": "ab\ncd",
+    "count": 3
+   },
+   "output": "ab\ncd\nab\ncd\nab\ncd",
+   "message": "Text repeated 3 time(s)."
+  },
+  {
+   "id": "reading-time",
+   "name": "wpm",
+   "input": {
+    "source": "Hello   World\tfoo\nПривіт Світ\n\nsecond  paragraph. Another one! Third?\nemail: a.b+c@example.co.uk та test@mail.org\n#tag1 #тег2 @user.name +380 (67) 123-45-67\nhttps://example.com/path?a=1, http://x.io/y\n-12.5 and 42 and +7\n  spaced  line  \nduplicate\nduplicate\n\némoji 🎉👍🏽 and ﬁ ligature\nCafé naïve",
+    "wpm": 120
+   },
+   "output": {
+    "words": 54,
+    "wordsPerMinute": 120,
+    "readingTimeMinutes": 1
+   },
+   "message": "54 word(s) at 200 words per minute."
+  },
+  {
+   "id": "line-count",
+   "name": "mixed",
+   "input": {
+    "source": "a\n\nb\n"
+   },
+   "output": {
+    "totalLines": 4,
+    "nonEmptyLines": 2,
+    "emptyLines": 2
+   },
+   "message": "4 line(s)."
+  }
+ ]
+}
